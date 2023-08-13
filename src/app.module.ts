@@ -5,6 +5,8 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { WishesModule } from './wishes/wishes.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -32,6 +34,8 @@ import { WishesModule } from './wishes/wishes.module';
       rootPath: path.join(__dirname, '..', 'build'),
     }),
     WishesModule,
+    UsersModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
