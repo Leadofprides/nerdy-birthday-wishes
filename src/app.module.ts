@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { config } from './config/config';
+import { config } from './config';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';

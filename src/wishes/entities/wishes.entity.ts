@@ -1,12 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 @Entity()
 export class Wishes {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn('text')
   wishes_uuid: string;
 
-  @Column({ type: 'text' })
-  wishes_body: string;
+  @Column({ type: 'json' })
+  wishes_body: object;
 
   @Column({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   request_received_at: Date;
@@ -22,4 +22,7 @@ export class Wishes {
 
   @Column({ nullable: true })
   done_by_worker_id: number;
+
+  @Column({ type: 'text', nullable: true })
+  hash: string;
 }
