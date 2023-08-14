@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
-import { Wishes } from '../entities/wishes.entity';
+import { Wish } from '../entities/wish.entity';
 
-export class WishesUuidResponseDto extends Wishes {
+export class WishesUuidResponseDto extends Wish {
   @ApiProperty()
   @IsNotEmpty({ message: 'wishes_uuid should not be empty' })
   @IsString({ message: 'wishes_uuid must be string' })

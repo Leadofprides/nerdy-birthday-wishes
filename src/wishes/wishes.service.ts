@@ -4,7 +4,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Worker } from 'worker_threads';
-import { Wishes } from './entities/wishes.entity';
+import { Wish } from './entities/wish.entity';
 import { WishesCreateDto } from './dto/wishes-create.dto';
 import { WishesUuidResponseDto } from './dto/wishes-uuid-response.dto';
 import { WishesStatus } from './enums/wishes-status.enum';
@@ -18,14 +18,14 @@ export class WishesService {
   private activeWorkers: number = 0;
 
   constructor(
-    @InjectRepository(Wishes)
-    private wishesRepository: Repository<Wishes>,
+    @InjectRepository(Wish)
+    private wishesRepository: Repository<Wish>,
   ) {}
 
   async prepareWishes(
     wishes_body: WishesCreateDto,
   ): Promise<WishesUuidResponseDto> {
-    const wish = new Wishes();
+    const wish = new Wish();
     wish.wishes_uuid = uuidv4();
     wish.wishes_body = wishes_body;
     wish.pow_nonce = 0;
@@ -48,7 +48,7 @@ export class WishesService {
     }
   }
 
-  private startWorker(wishes_uuid: string, wishes_body: WishesCreateDto) {
+  startWorker(wishes_uuid: string, wishes_body: WishesCreateDto) {
     this.activeWorkers++;
 
     const worker = new Worker(path.join(__dirname, 'wishes-computation'), {

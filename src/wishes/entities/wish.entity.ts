@@ -1,7 +1,7 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 @Entity()
-export class Wishes {
+export class Wish {
   @PrimaryColumn('text')
   wishes_uuid: string;
 
