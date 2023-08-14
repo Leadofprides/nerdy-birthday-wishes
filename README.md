@@ -76,6 +76,10 @@ $ docker-compose exec app npm run test:e2e
 $ docker-compose exec app npm run test:cov
 ```
 
+## Swagger
+
+To access the Swagger documentation, please go to /swagger route
+
 ## License
 
 Nest is [MIT licensed](LICENSE).
