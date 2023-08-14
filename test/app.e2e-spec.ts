@@ -25,14 +25,14 @@ describe('Wishes and Auth E2E Tests', () => {
     app = moduleFixture.createNestApplication();
     entityManager = moduleFixture.get<EntityManager>(EntityManager);
     wishes_body = {
-      wishes: 'Test wish!',
+      wishes: 'Test wishes!',
       from: 'Test user 1',
       to: 'Test user 2',
     } as WishesCreateDto;
     user = {
       username: 'testUser',
       password: 'testPassword',
-    } as UsersCreateDto;
+    };
     await app.init();
   });
 
