@@ -61,7 +61,7 @@ describe('WishesService', () => {
 
   describe('checkWishesStatus', () => {
     it('should return AWAITING_CPU status', async () => {
-      const mockWish = { computation_started_at: null, wishes_body };
+      const mockWish = { wishes_body, wishes_status: 'Awaiting CPU core' };
       mockRepository.findOne.mockReturnValueOnce(mockWish);
 
       const result = await service.checkWishesStatus(wishes_uuid);

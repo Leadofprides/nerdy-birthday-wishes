@@ -1,4 +1,5 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
+import { WishesStatus } from '../enums/wishes-status.enum';
 
 @Entity()
 export class Wish {
@@ -25,4 +26,11 @@ export class Wish {
 
   @Column({ type: 'text', nullable: true })
   hash: string;
+
+  @Column({
+    type: 'enum',
+    enum: WishesStatus,
+    default: WishesStatus.AWAITING_CPU,
+  })
+  wishes_status: WishesStatus;
 }
