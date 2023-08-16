@@ -92,6 +92,7 @@ describe('Wishes and Auth E2E Tests', () => {
       .set('Authorization', `Bearer ${accessToken}`)
       .expect(200)
       .then((response) => {
+        console.log(response.body);
         expect(response.body.pow_nonce).toBeDefined();
         expect(response.body.hash).toBeDefined();
         expect(response.body.hash.startsWith('00')).toBe(true);
